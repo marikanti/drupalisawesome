@@ -1,0 +1,4 @@
+name = Testhello
+description = its custom hello module...
+core = 7.x
+package = "custom_module"

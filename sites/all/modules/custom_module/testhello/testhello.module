@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * Declare what blocks are provided by this module.
+ * Implements hook_block_info().
+ */
+function testhello_block_info(){
+    $block['testhello'] = array(
+        'info' => t('Test Hello'),
+        'cache' => DRUPAL_NO_CACHE,
+    );
+    return $block;
+}
+
+/**
+ * Define what our block is going to look like.
+ * Implements hook_block_view().
+ */
+function testhello_block_view($delta){
+    $block = array();
+
+    if($delta == 'testhello')//We only want to define the content of OUR block
+ {
+        //This is the title of the block.
+    $block['subject'] = t('Welcome');
+
+        //Define the block content.
+    $block['content'] = t('Aradhana will arrive on ').(date('l'));
+    
+ }
+  else 
+     $block['content']="Hello";
+    return $block;
+}
+
+/**
+ * @file
+ * The testhello module provides a block with member count information.
+ */
+
+/**
+ * Implementation of hook_help().
+ */
+function testhello_help($path, $args) {
+  if ($path == 'admin/help#testhello') {
+    return t('To use this module, go to the block page and turn on the testhello block.');
+  }
+}
+
+?>
